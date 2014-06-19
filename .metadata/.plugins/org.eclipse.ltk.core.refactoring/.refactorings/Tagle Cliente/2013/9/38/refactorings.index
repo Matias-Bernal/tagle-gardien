@@ -1,0 +1,13 @@
+1379300482559	Rename field 'calandario'
+1379304643643	Rename field 'fecha_solicitud'
+1379454204942	Encapsulate field 'iControlUsuario'
+1379483030935	Rename field 'btnListarUsuarios'
+1379524364118	Rename method 'crear'
+1379535842015	Encapsulate field 'iControlRegistrante'
+1379601377115	Encapsulate field 'iControlAgente'
+1379601382007	Encapsulate field 'iControlEntidad'
+1379656101333	Rename local variable 'usuarios'
+1379729882687	Rename local variable 'usuario'
+1379888104073	Rename type 'GUIModificarAgente'
+1379889803176	Move compilation unit
+1379890271485	Move compilation unit

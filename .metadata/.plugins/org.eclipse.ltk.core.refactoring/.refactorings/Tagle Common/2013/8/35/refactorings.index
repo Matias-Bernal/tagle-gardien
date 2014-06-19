@@ -1,0 +1,18 @@
+1377636993203	Rename package 'Persistencia'
+1377639869194	Move package
+1377667989669	Rename package 'common.dto'
+1377668033214	Move compilation unit
+1377668061100	Delete element
+1377668064017	Delete element
+1377668106082	Rename package 'common.DTOs'
+1377751411496	Copy package
+1377751422900	Copy package
+1377751434518	Copy package
+1377752029309	Copy compilation units
+1377752035049	Copy compilation unit
+1377897406843	Rename field 'numero_pieza'
+1377897411694	Rename field 'numero_pedido'
+1377899266501	Rename field 'nombre_marca'
+1377899454323	Rename field 'numero_pedido'
+1377899463360	Rename field 'numero_pieza'
+1377901119769	Copy compilation units
