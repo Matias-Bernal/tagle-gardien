@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Tagle Common"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/ant-1.5.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/antlr-2.7.5.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/commons-beanutils-1.7.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/commons-collections-2.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/commons-dbcp-1.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/commons-javaflow-20060411.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/commons-logging-1.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/commons-logging-api-1.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/datanucleus-core-2.2.0-m1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/datanucleus-enhancer-2.1.0-release.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/datanucleus-rdbms-2.2.0-m1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/groovy-all-1.0.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/hsqldb-1.7.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/itext-1.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jakarta-bcel-20050813.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/JasperBabylon-1.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jasperreports-2.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jasperreports-2.0.1-applet.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jasperreports-2.0.1-javaflow.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jaxen-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jcalendar.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jcalendar-1.3.3.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jcommon-1.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jdo2-api-2.3-eb.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jdo-api-3.0.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jdt-compiler-3.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jfreechart-1.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jpa.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/jxl-2.6.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/LiquidLnF.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/log4j-1.2.7.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/looks-2.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/mondrian-2.3.2.8944.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/persistence-api-1.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/png-encoder-1.5.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/poi-3.0.1-FINAL-20070705.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/saaj-api-1.3.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/servlet.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/xalan.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/lib/xml-apis.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/Librerias/Conectores SQL/mysql-connector-java-5.1.26-bin.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/Librerias/Conectores SQL/postgresql-9.2-1003.jdbc4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

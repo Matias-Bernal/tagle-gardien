@@ -1,0 +1,20 @@
+package cliente.GestionarUsuario;
+
+import cliente.MediadorPrincipal;
+
+public class MediadorUsuario {
+	
+	protected GUIAltaUsuario guiAltaUsuario;
+	protected GUIGestionUsuario guiGestionUsuario;
+	protected MediadorPrincipal mediadorPrincipal;
+
+	public MediadorUsuario(MediadorPrincipal mediadorPrincipal){
+		this.mediadorPrincipal = mediadorPrincipal;
+	}
+	
+	public void altaUsuario(){
+		guiAltaUsuario = new GUIAltaUsuario(this);
+		guiAltaUsuario.setVisible(true);
+	}
+
+}

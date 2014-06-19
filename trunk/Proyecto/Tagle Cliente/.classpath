@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Tagle Common"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/Librerias/JCalendar/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/Librerias/JCalendar/jdatepicker-1.3.2.jar"/>
+	<classpathentry kind="lib" path="D:/DESARROLLO/IT10 Cooperativa/Tagle/Librerias/JExcel/jxl.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

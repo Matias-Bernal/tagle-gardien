@@ -1,0 +1,66 @@
+1377639939396	Encapsulate field 'nombre_registrante'
+1377639952967	Encapsulate field 'nombre_registrante'
+1377643627964	Delete element
+1377666090707	Move compilation units
+1377666094993	Delete element
+1377666201075	Copy package
+1377668408551	Copy compilation units
+1377670473028	Move compilation units
+1377670487657	Rename package 'servidor.persistencia.dominio'
+1377670499752	Move compilation units
+1377670531617	Delete element
+1377670555084	Move compilation unit
+1377670579890	Move compilation unit
+1377670589479	Rename package 'servidor.persistencia.dominio'
+1377670620265	Move compilation units
+1377670639088	Delete element
+1377670734473	Move compilation unit
+1377670746526	Move compilation units
+1377670757950	Rename package 'servidor.persistencia.dominio'
+1377670765312	Move compilation unit
+1377670790806	Move compilation unit
+1377670812748	Move compilation units
+1377751313820	Delete element
+1377751323996	Copy package
+1377751336571	Copy package
+1377751350237	Copy package
+1377751382375	Copy elements
+1377751951297	Copy compilation unit
+1377751980114	Copy compilation unit
+1377751998163	Copy elements
+1377837219336	Encapsulate field 'reclamo'
+1377840279481	Rename field 'id_reclamo_fabrica'
+1377840301368	Rename field 'numero_pieza'
+1377840309838	Rename field 'numero_pedido'
+1377840575476	Rename field 'numero_pedido'
+1377840585975	Rename field 'numero_pieza'
+1377840594165	Rename field 'id_muleto'
+1377840604461	Rename field 'id_devolucion_pieza'
+1377840631480	Rename field 'id_bdg'
+1377840640278	Rename field 'id_recurso'
+1377840654506	Rename field 'id_mano_obra'
+1377840673210	Rename local variable 'numero_pedido'
+1377840679902	Rename local variable 'numero_pieza'
+1377840685565	Rename local variable 'id_muleto'
+1377840691743	Rename local variable 'id_devolucion_pieza'
+1377840707343	Rename local variable 'id_bdg'
+1377840714550	Rename local variable 'id_recurso'
+1377840721242	Rename local variable 'id_mano_obra'
+1377894453830	Copy compilation units
+1377937848587	Rename type 'ClaseAssembler'
+1377937884031	Rename type 'Clase_GeneralAssembler'
+1377988265501	Rename local variable 'marca'
+1377990459956	Rename local variable 'Notificacion_Asignacion_Turnos'
+1377990482969	Rename local variable 'Notificacion_Asignacion_TurnosDTO'
+1377990578282	Rename local variable 'Notificacion_Contencion_ClienteDTO'
+1377990586309	Rename local variable 'Notificacion_Contencion_Cliente'
+1377990594842	Rename local variable 'Notificacion_Contencion_Cliente'
+1377990601373	Rename local variable 'Notificacion_Contencion_ClienteDTO'
+1377990668705	Rename local variable 'Notificacion_Reclamo_FabricaDTO'
+1377990676215	Rename local variable 'Notificacion_Reclamo_Fabrica'
+1377990682739	Rename local variable 'Notificacion_Reclamo_Fabrica'
+1377990688763	Rename local variable 'Notificacion_Reclamo_FabricaDTO'
+1377990749567	Rename local variable 'Notificacion_Sugerencia'
+1377990758090	Rename local variable 'Notificacion_SugerenciaDTO'
+1377990764613	Rename local variable 'Notificacion_Sugerencia'
+1377990769644	Rename local variable 'Notificacion_SugerenciaDTO'
