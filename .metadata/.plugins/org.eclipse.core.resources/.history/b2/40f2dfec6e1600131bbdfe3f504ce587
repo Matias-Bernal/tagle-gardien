@@ -1,0 +1,110 @@
+package cliente.GestionarUsuario;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+
+import cliente.MediadorPrincipal;
+
+public class GUIAltaUsuario extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField tFnombre_usuario;
+	private JPasswordField passwordField;
+	private JPasswordField passwordFieldConfirm;
+	private JTextField tFemail;
+	private MediadorUsuario medidador;
+
+	public GUIAltaUsuario(final MediadorUsuario medidador) {
+		this.medidador = medidador;
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 800, 600);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNombreDeUsuario = new JLabel("Nombre De Usuario");
+		lblNombreDeUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNombreDeUsuario.setBounds(337, 94, 109, 23);
+		contentPane.add(lblNombreDeUsuario);
+		
+		tFnombre_usuario = new JTextField();
+		tFnombre_usuario.setBounds(267, 128, 250, 20);
+		contentPane.add(tFnombre_usuario);
+		tFnombre_usuario.setColumns(10);
+		
+		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea.setHorizontalAlignment(SwingConstants.CENTER);
+		lblContrasea.setBounds(337, 189, 109, 23);
+		contentPane.add(lblContrasea);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(267, 229, 250, 21);
+		contentPane.add(passwordField);
+		
+		passwordFieldConfirm = new JPasswordField();
+		passwordFieldConfirm.setBounds(267, 295, 250, 20);
+		contentPane.add(passwordFieldConfirm);
+		
+		JLabel lblConfirmar = new JLabel("Confirmar Contrase\u00F1a");
+		lblConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
+		lblConfirmar.setBounds(326, 261, 132, 23);
+		contentPane.add(lblConfirmar);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEmail.setBounds(342, 346, 100, 22);
+		contentPane.add(lblEmail);
+		
+		tFemail = new JTextField();
+		tFemail.setBounds(267, 379, 250, 20);
+		contentPane.add(tFemail);
+		tFemail.setColumns(10);
+		
+		JButton btnCrearUsuario = new JButton("Crear Usuario");
+		btnCrearUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (tFnombre_usuario.getText().isEmpty() || passwordField.getText().isEmpty() || tFemail.getText().isEmpty()){
+					JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+				}
+				}else{
+					if (chequearContraseña()){
+						medidador.nuevoUsuario(tFnombre_usuario.getText(), passwordField.getText(), tFemail.getText());
+					}else{
+						JOptionPane.showMessageDialog(contentPane,"Las contraseñas no coinciden.","Error",JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			}
+
+			private boolean chequearContraseña() {
+				return (passwordField.getText().equals(passwordFieldConfirm.getText()));
+			}
+		});
+		btnCrearUsuario.setBounds(167, 435, 169, 42);
+		contentPane.add(btnCrearUsuario);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(462, 435, 169, 42);
+		contentPane.add(btnCancelar);
+	}
+	
+	public void SetVisible(boolean visible){
+		contentPane.setVisible(visible);
+	}
+}

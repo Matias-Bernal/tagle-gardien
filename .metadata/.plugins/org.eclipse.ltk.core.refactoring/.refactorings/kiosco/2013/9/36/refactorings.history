@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;GUIServidorIniciado.java&apos; to &apos;Tagle Servidor/src/servidor&apos;&#x0D;&#x0A;- Original project: &apos;kiosco&apos;&#x0D;&#x0A;- Destination element: &apos;Tagle Servidor/src/servidor&apos;&#x0D;&#x0A;- Original element: &apos;cliente.Principal.GUIServidorIniciado.java&apos;" description="Copy compilation unit" destination="=Tagle Servidor/src&lt;servidor" element1="/src&lt;cliente.Principal{GUIServidorIniciado.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1378499645571" units="1" version="1.0"/>
+</session>
