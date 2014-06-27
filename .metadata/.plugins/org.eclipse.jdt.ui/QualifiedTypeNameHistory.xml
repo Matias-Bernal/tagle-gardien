@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="servidor.Persistencia.Dominio.Solicitante"/>
-<fullyQualifiedTypeName name="comun.DTOs.SolicitudDTO"/>
 <fullyQualifiedTypeName name="servidor.Assemblers.SolicitudAssembler"/>
 <fullyQualifiedTypeName name="servidor.Persistencia.Dominio.Solicitud"/>
 <fullyQualifiedTypeName name="servidor.GestionarUsuarioRepuesto.ControlUsuarioRepuesto"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="comun.GestionarCargo.IControlCargo"/>
 <fullyQualifiedTypeName name="comun.GestionarPerito.IControlPerito"/>
 <fullyQualifiedTypeName name="comun.GestionarPeritoSeguro.IControlPeritoSeguro"/>
+<fullyQualifiedTypeName name="cliente.GestionarSolicitante.GUIAltaSolicitante"/>
+<fullyQualifiedTypeName name="cliente.GestionarSolicitante.MediadorSolicitante"/>
 </qualifiedTypeNameHistroy>

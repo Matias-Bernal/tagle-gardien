@@ -123,7 +123,7 @@ public class GUIMenu_Principal extends JFrame{
 		mntmAltaSolicitante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//setVisible(false);
-				//mediadorPrincipal.altaRegistrante();
+				mediadorPrincipal.altaSolicitante();
 			}
 		});
 		mnSolicitante.add(mntmAltaSolicitante);
