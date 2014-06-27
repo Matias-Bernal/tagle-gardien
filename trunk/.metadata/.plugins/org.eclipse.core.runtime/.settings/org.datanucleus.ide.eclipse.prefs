@@ -1,0 +1,5 @@
+connectionURL=jdbc\:postgresql\://localhost\:5432/Tagle2
+driverName=org.postgresql.Driver
+eclipse.preferences.version=1
+jdbcDriverPath=file\:/D\:/DESARROLLO/IT10%20Cooperativa/Tagle/postgresql-9.2-1003.jdbc4.jar
+user=postgres
