@@ -1,0 +1,33 @@
+package cliente.GestionarSolicitante;
+
+import cliente.GestionarUsuario.GUIAltaUsuario;
+import cliente.GestionarUsuario.GUIGestionUsuario;
+import cliente.GestionarUsuario.GUIModificarUsuario;
+import cliente.MenuPrincipal.MediadorPrincipal;
+
+public class MediadorSolicitante {
+
+	protected GUIAltaSolicitante guiAltaSolicitante;
+	protected GUIModificarSolicitante guiModificarSolicitante;
+	protected GUIGestionSolicitante guiGestionSolicitante;
+	protected MediadorPrincipal mediadorPrincipal;
+	
+
+	public MediadorSolicitante(MediadorPrincipal mediadorPrincipal){
+		this.mediadorPrincipal = mediadorPrincipal;
+	}
+	
+	public void altaSolicitante(){
+		guiAltaSolicitante = new GUIAltaSolicitante(this);
+		guiAltaSolicitante.setVisible(true);
+	}
+//	public void altaUsuario(String nombre_usuario, String email, String Tipo){
+//		guiAltaUsuario = new GUIAltaUsuario(this,nombre_usuario,email, Tipo);
+//		guiAltaUsuario.setVisible(true);
+//	}
+	
+	public void gestionSolicitante(){
+//		guiGestionSolicitante = new GUIGestionSolicitante(this);
+		guiGestionSolicitante.setVisible(true);
+	}
+}

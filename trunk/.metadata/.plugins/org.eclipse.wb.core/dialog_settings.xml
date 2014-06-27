@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="org.eclipse.wb.internal.core.model.util.ExposePropertySupport$ExposePropertyAction$ExposeDialog">
-		<item value="412" key="height"/>
+	<section name="org.eclipse.wb.internal.core.model.util.RenameConvertSupport$RenameDialog">
 		<item value="525" key="width"/>
-		<item value="163" key="y"/>
 		<item value="420" key="x"/>
-	</section>
-	<section name="org.eclipse.wb.internal.swing.model.property.editor.models.table.TableModelDialog">
-		<item value="552" key="height"/>
-		<item value="776" key="width"/>
-		<item value="92" key="y"/>
-		<item value="366" key="x"/>
-	</section>
-	<section name="org.eclipse.wb.internal.core.nls.ui.NlsDialog">
-		<item value="364" key="height"/>
-		<item value="683" key="width"/>
-		<item value="182" key="y"/>
-		<item value="341" key="x"/>
+		<item value="223" key="y"/>
+		<item value="281" key="height"/>
 	</section>
 	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.CategoryEditDialog">
-		<item value="360" key="height"/>
 		<item value="525" key="width"/>
+		<item value="420" key="x"/>
 		<item value="184" key="y"/>
-		<item value="420" key="x"/>
+		<item value="360" key="height"/>
 	</section>
-	<section name="org.eclipse.wb.internal.core.model.util.RenameConvertSupport$RenameDialog">
-		<item value="281" key="height"/>
+	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.PalettePreferencesDialog">
 		<item value="525" key="width"/>
-		<item value="223" key="y"/>
 		<item value="420" key="x"/>
+		<item value="195" key="y"/>
+		<item value="338" key="height"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.model.property.order.ReorderDialog">
+		<item value="520" key="width"/>
+		<item value="423" key="x"/>
+		<item value="181" key="y"/>
+		<item value="365" key="height"/>
+	</section>
+	<section name="org.eclipse.wb.internal.swing.model.property.editor.models.table.TableModelDialog">
+		<item value="776" key="width"/>
+		<item value="366" key="x"/>
+		<item value="92" key="y"/>
+		<item value="552" key="height"/>
 	</section>
 	<section name="org.eclipse.wb.internal.core.editor.actions.errors.ErrorsDialog">
-		<item value="645" key="height"/>
 		<item value="684" key="width"/>
-		<item value="41" key="y"/>
 		<item value="341" key="x"/>
-	</section>
-	<section name="org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyDialog">
-		<item value="345" key="height"/>
-		<item value="530" key="width"/>
-		<item value="191" key="y"/>
-		<item value="418" key="x"/>
+		<item value="41" key="y"/>
+		<item value="645" key="height"/>
 	</section>
 	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.ImportArchiveDialog">
-		<item value="441" key="height"/>
 		<item value="592" key="width"/>
-		<item value="143" key="y"/>
 		<item value="420" key="x"/>
+		<item value="143" key="y"/>
+		<item value="441" key="height"/>
 		<list key="HISTORY_JAR_LIST">
 			<item value="D:\DESARROLLO\IT10 Cooperativa\Tagle\Librerias\JCalendar\jcalendar-1.4.jar"/>
 			<item value="D:\DESARROLLO\IT10 Cooperativa\Tagle\Librerias\JCalendar\jdatepicker-1.3.2.jar"/>
 		</list>
 	</section>
+	<section name="org.eclipse.wb.internal.core.model.util.ExposePropertySupport$ExposePropertyAction$ExposeDialog">
+		<item value="525" key="width"/>
+		<item value="420" key="x"/>
+		<item value="163" key="y"/>
+		<item value="412" key="height"/>
+	</section>
+	<section name="org.eclipse.wb.internal.core.nls.ui.NlsDialog">
+		<item value="683" key="width"/>
+		<item value="341" key="x"/>
+		<item value="182" key="y"/>
+		<item value="364" key="height"/>
+	</section>
 	<section name="org.eclipse.wb.internal.core.editor.actions.assistant.LayoutAssistantWindow">
-		<item value="423" key="y"/>
 		<item value="831" key="x"/>
+		<item value="423" key="y"/>
 	</section>
 	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.PaletteManagerDialog">
-		<item value="515" key="height"/>
 		<item value="525" key="width"/>
+		<item value="420" key="x"/>
 		<item value="106" key="y"/>
-		<item value="420" key="x"/>
+		<item value="515" key="height"/>
 	</section>
-	<section name="org.eclipse.wb.internal.core.editor.palette.dialogs.PalettePreferencesDialog">
-		<item value="338" key="height"/>
-		<item value="525" key="width"/>
-		<item value="195" key="y"/>
-		<item value="420" key="x"/>
-	</section>
-	<section name="org.eclipse.wb.internal.core.model.property.order.ReorderDialog">
-		<item value="365" key="height"/>
-		<item value="520" key="width"/>
-		<item value="181" key="y"/>
-		<item value="423" key="x"/>
+	<section name="org.eclipse.wb.internal.core.model.property.editor.string.StringPropertyDialog">
+		<item value="530" key="width"/>
+		<item value="418" key="x"/>
+		<item value="191" key="y"/>
+		<item value="345" key="height"/>
 	</section>
 </section>

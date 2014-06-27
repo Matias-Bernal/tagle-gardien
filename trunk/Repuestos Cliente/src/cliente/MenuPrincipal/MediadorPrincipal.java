@@ -21,6 +21,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 import cliente.MediadorAccionesIniciarPrograma;
+import cliente.GestionarSolicitante.MediadorSolicitante;
 import cliente.GestionarSolicitud.MediadorSolicitud;
 import cliente.GestionarUsuario.MediadorUsuario;
 import cliente.Login.GUILogin;
@@ -34,6 +35,7 @@ public class MediadorPrincipal{
 	protected GUILogin gui_login; 
 	protected UsuarioRepuestoDTO usuario_repuesto;
 	protected MediadorUsuario mediadorUsuario;
+	protected MediadorSolicitante mediadorSolicitante;
 	protected MediadorSolicitud mediadorSolicitud;
 	
 	public MediadorPrincipal() throws Exception{
@@ -93,6 +95,15 @@ public class MediadorPrincipal{
 	public void altaUsuario(String nombre_usuario, String email, String tipo){
 		mediadorUsuario = new MediadorUsuario(this);
 		mediadorUsuario.altaUsuario(nombre_usuario, email, tipo);
+	}
+	// Solicitante //
+	public void altaSolicitante(){
+		mediadorSolicitante = new MediadorSolicitante(this);
+		mediadorSolicitante.altaSolicitante();
+	}
+	public void gestionarSolicitante(){
+		mediadorSolicitante = new MediadorSolicitante(this);
+		mediadorSolicitante.gestionSolicitante();
 	}
 	// Solicitud //
 	public void altaSolicitud(){
