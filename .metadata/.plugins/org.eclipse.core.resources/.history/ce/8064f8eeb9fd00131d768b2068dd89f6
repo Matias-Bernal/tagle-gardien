@@ -21,9 +21,6 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 import cliente.MediadorAccionesIniciarPrograma;
-import cliente.Buscador.MediadorBuscador;
-import cliente.GestionarProveedor.MediadorProveedor;
-import cliente.GestionarReclamo.MediadorReclamo;
 import cliente.GestionarSolicitante.MediadorSolicitante;
 import cliente.GestionarSolicitud.MediadorSolicitud;
 import cliente.GestionarUsuario.MediadorUsuario;
@@ -39,10 +36,7 @@ public class MediadorPrincipal{
 	protected UsuarioRepuestoDTO usuario_repuesto;
 	protected MediadorUsuario mediadorUsuario;
 	protected MediadorSolicitante mediadorSolicitante;
-	protected MediadorProveedor mediadorProveedor;
 	protected MediadorSolicitud mediadorSolicitud;
-	protected MediadorReclamo mediadorReclamo;
-	protected MediadorBuscador mediadorBuscador;
 	
 	public MediadorPrincipal() throws Exception{
 		gui_login = new GUILogin(this);
@@ -111,17 +105,6 @@ public class MediadorPrincipal{
 		mediadorSolicitante = new MediadorSolicitante(this);
 		mediadorSolicitante.gestionSolicitante();
 	}
-	// Proveedor //
-	
-	public void altaProveedor(){
-		mediadorProveedor = new MediadorProveedor(this);
-		mediadorProveedor.altaProveedor();
-	}
-	public void gestionarProveedor(){
-		mediadorProveedor = new MediadorProveedor(this);
-		mediadorProveedor.gestionProveedor();
-	}
-	
 	// Solicitud //
 	public void altaSolicitud(){
 		mediadorSolicitud = new MediadorSolicitud(this);
@@ -130,24 +113,6 @@ public class MediadorPrincipal{
 	public void gestionarSolicitud(){
 		mediadorSolicitud = new MediadorSolicitud(this);
 		mediadorSolicitud.gestionarSolicitud();
-	}
-	
-	// Reclamo //
-	
-	public void altaReclamo(){
-		mediadorReclamo = new MediadorReclamo(this);
-		mediadorReclamo.altaReclamo();
-	}
-	public void gestionarReclamo(){
-		mediadorReclamo = new MediadorReclamo(this);
-		mediadorReclamo.gestionarReclamo();
-	}
-	
-	// Buscador //
-	
-	public void inicarBuscador(){
-		mediadorBuscador = new MediadorBuscador(this);
-		mediadorBuscador.buscador();
 	}
 	// Ayuda //
 	public void ayuda(){

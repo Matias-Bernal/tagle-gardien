@@ -143,12 +143,7 @@ public class MediadorPrincipal{
 		mediadorReclamo.gestionarReclamo();
 	}
 	
-	// Buscador //
 	
-	public void inicarBuscador(){
-		mediadorBuscador = new MediadorBuscador(this);
-		mediadorBuscador.buscador();
-	}
 	// Ayuda //
 	public void ayuda(){
 		File manual = new File(RootAndIp.getPath_manual()+"ManualRepuestos.pdf");

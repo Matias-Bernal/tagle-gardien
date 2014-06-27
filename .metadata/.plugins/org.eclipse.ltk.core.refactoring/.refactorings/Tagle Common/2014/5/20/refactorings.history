@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;AgenteDTO.java&apos; to &apos;Repuestos Comun/src/comun.DTOs&apos;&#x0D;&#x0A;- Original project: &apos;Tagle Common&apos;&#x0D;&#x0A;- Destination element: &apos;Repuestos Comun/src/comun.DTOs&apos;&#x0D;&#x0A;- Original element: &apos;common.DTOs.AgenteDTO.java&apos;" description="Copy compilation unit" destination="=Repuestos Comun/src&lt;comun.DTOs" element1="/src&lt;common.DTOs{AgenteDTO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1400218631959" units="1" version="1.0"/>
-</session>

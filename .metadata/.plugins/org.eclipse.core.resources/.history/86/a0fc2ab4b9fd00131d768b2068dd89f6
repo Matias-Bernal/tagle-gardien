@@ -1,5 +1,7 @@
-package cliente.GestionarSolicitante;
+package cliente.GestionarProveedor;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -16,20 +18,22 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-public class GUIAltaSolicitante extends JFrame {
+import cliente.GestionarSolicitante.MediadorSolicitante;
+
+public class GUIAltaProveedor extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField tFNombreSolicitante;
 	private JTextField tFemail;
-	private MediadorSolicitante medidador;
+	private MediadorProveedor medidador;
 	private JComboBox<String> cBTSolicitante;
 	private String[] tiposUsuarios;
 	private int limite = 35;
 	private JTextField tFTelefono;
 	private JTextField tfTelefono;
 	
-	public GUIAltaSolicitante(final MediadorSolicitante medidador) {
+	public GUIAltaProveedor(final MediadorProveedor medidador) {
 		this.setMedidador(medidador);
 		tiposUsuarios = new String[] {"Mostrador", "Mayorista", "Garantia", "Seguro" , "Taller Mecanico", "Taller Carroceria"};
 		initialize();
@@ -167,11 +171,11 @@ public class GUIAltaSolicitante extends JFrame {
 		this.tFTelefono = tFTelefono;
 	}
 
-	public MediadorSolicitante getMedidador() {
+	public MediadorProveedor getMedidador() {
 		return medidador;
 	}
 
-	public void setMedidador(MediadorSolicitante medidador) {
+	public void setMedidador(MediadorProveedor medidador) {
 		this.medidador = medidador;
 	}
 
