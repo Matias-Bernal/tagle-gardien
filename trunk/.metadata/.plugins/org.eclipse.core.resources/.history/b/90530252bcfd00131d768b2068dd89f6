@@ -1,6 +1,7 @@
 package cliente.GestionarSolicitante;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,16 +9,27 @@ import javax.swing.border.EmptyBorder;
 
 public class GUIGestionSolicitante extends JFrame {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	
-	public GUIGestionSolicitante(MediadorSolicitante mediadorSolicitante) {
-		// TODO Auto-generated constructor stub
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUIGestionSolicitante frame = new GUIGestionSolicitante();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-	
+
+	/**
+	 * Create the frame.
+	 */
 	public GUIGestionSolicitante() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -26,6 +38,5 @@ public class GUIGestionSolicitante extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 	}
-
 
 }

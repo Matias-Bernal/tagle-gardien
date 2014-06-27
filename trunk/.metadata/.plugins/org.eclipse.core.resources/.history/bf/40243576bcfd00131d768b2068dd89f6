@@ -185,7 +185,7 @@ public class GUIAltaSolicitud extends JFrame {
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 963, 506);
-		setPanelMostrador();
+		setPanelSeguro();
 		
 	}
 	
@@ -251,6 +251,7 @@ public class GUIAltaSolicitud extends JFrame {
 		panelDinamico.add(tfPCL);
 	}
 
+	@SuppressWarnings("unused")
 	private void setPanelMostrador(){
 		JLabel lblNombreCliente = new JLabel("Nombre Cliente");
 		lblNombreCliente.setHorizontalAlignment(SwingConstants.CENTER);
@@ -283,7 +284,6 @@ public class GUIAltaSolicitud extends JFrame {
 		panelDinamico.add(tFEmailCliente);
 	}
 
-	@SuppressWarnings("unused")
 	private void setPanelSeguro(){
 		JLabel lblNumeroSiniestro = new JLabel("Numero Siniestro");
 		lblNumeroSiniestro.setHorizontalAlignment(SwingConstants.CENTER);

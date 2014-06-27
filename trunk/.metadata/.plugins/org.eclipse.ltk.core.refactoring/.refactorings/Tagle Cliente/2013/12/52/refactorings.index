@@ -1,7 +1,0 @@
-1388104262433	Rename method 'filtrarPorEstado_Pedido'
-1388104647259	Rename type 'GUIGestionOrden'
-1388104656443	Rename method 'filtrarPorEstado'
-1388107328956	Rename type 'filtrarPorEstado_Orden'
-1388159737997	Delete element
-1388175890253	Rename field 'btnExportarTabla'
-1388180612372	Rename local variable 'frf'

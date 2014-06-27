@@ -1,0 +1,5 @@
+package cliente.GestionarReclamo;
+
+public class MediadorReclamo {
+
+}

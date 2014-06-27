@@ -1,0 +1,19 @@
+package cliente.Buscador;
+
+import cliente.MenuPrincipal.MediadorPrincipal;
+
+public class MediadorBuscador {
+	
+	protected GUIBuscador guiBuscador;
+	protected MediadorPrincipal mediadorPrincipal;
+	
+
+	public MediadorBuscador(MediadorPrincipal mediadorPrincipal){
+		this.mediadorPrincipal = mediadorPrincipal;
+	}
+	
+	public void buscador(){
+		guiBuscador = new GUIBuscador(this);
+		guiBuscador.setVisible(true);
+	}
+}

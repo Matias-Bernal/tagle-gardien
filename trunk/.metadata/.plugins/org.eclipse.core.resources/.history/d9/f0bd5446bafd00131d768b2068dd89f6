@@ -1,5 +1,8 @@
 package cliente.GestionarSolicitante;
 
+import cliente.GestionarUsuario.GUIAltaUsuario;
+import cliente.GestionarUsuario.GUIGestionUsuario;
+import cliente.GestionarUsuario.GUIModificarUsuario;
 import cliente.MenuPrincipal.MediadorPrincipal;
 
 public class MediadorSolicitante {
@@ -24,7 +27,7 @@ public class MediadorSolicitante {
 //	}
 	
 	public void gestionSolicitante(){
-		guiGestionSolicitante = new GUIGestionSolicitante(this);
+//		guiGestionSolicitante = new GUIGestionSolicitante(this);
 		guiGestionSolicitante.setVisible(true);
 	}
 }

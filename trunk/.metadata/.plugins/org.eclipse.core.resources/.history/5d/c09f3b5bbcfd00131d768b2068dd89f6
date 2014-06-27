@@ -24,7 +24,7 @@ public class MediadorSolicitante {
 //	}
 	
 	public void gestionSolicitante(){
-		guiGestionSolicitante = new GUIGestionSolicitante(this);
+//		guiGestionSolicitante = new GUIGestionSolicitante(this);
 		guiGestionSolicitante.setVisible(true);
 	}
 }

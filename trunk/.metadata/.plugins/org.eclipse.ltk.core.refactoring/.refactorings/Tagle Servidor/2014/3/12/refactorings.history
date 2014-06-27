@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;entidades&apos; in &apos;servidor.GestionarPedido_Pieza.ControlPedido_Pieza.obtenerPedido_PiezaReclamoAgente()&apos; to &apos;agentes&apos;&#x0D;&#x0A;- Original project: &apos;Tagle Servidor&apos;&#x0D;&#x0A;- Original element: &apos;servidor.GestionarPedido_Pieza.ControlPedido_Pieza.obtenerPedido_PiezaReclamoAgente().entidades&apos;&#x0D;&#x0A;- Renamed element: &apos;entidades&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;entidades&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;servidor.GestionarPedido_Pieza{ControlPedido_Pieza.java[ControlPedido_Pieza~obtenerPedido_PiezaReclamoAgente@entidades!24033!24081!24044!24052!QCollection;!0!false" name="agentes" references="true" stamp="1395034134628" version="1.0"/>
-</session>
