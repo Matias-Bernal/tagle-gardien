@@ -82,6 +82,7 @@ public class ControlSolicitud extends UnicastRemoteObject implements IControlSol
 			solicitud.setFecha_solicitud_solicitante(modificado.getFecha_solicitud_solicitante());
 			solicitud.setFecha_solicitud_proveedor(modificado.getFecha_solicitud_proveedor());
 			solicitud.setFecha_recepcion_proveedor(modificado.getFecha_recepcion_proveedor());
+			solicitud.setFecha_recepcion_estimada(modificado.getFecha_recepcion_estimada());
 			solicitud.setStock_propio(modificado.isStock_propio());
 			solicitud.setStock_fabrica(modificado.isStock_fabrica());
 			solicitud.setBloqueada(modificado.isBloqueada());
@@ -135,6 +136,7 @@ public class ControlSolicitud extends UnicastRemoteObject implements IControlSol
 				solicitudDTO.setFecha_solicitud_solicitante(solicitudes.elementAt(i).getFecha_solicitud_solicitante());
 				solicitudDTO.setFecha_solicitud_proveedor(solicitudes.elementAt(i).getFecha_solicitud_proveedor());
 				solicitudDTO.setFecha_recepcion_proveedor(solicitudes.elementAt(i).getFecha_recepcion_proveedor());
+				solicitudDTO.setFecha_recepcion_estimada(solicitudes.elementAt(i).getFecha_recepcion_estimada());
 				solicitudDTO.setStock_propio(solicitudes.elementAt(i).isStock_propio());
 				solicitudDTO.setStock_fabrica(solicitudes.elementAt(i).isStock_fabrica());
 				solicitudDTO.setBloqueada(solicitudes.elementAt(i).isBloqueada());

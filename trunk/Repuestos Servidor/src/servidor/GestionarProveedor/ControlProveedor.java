@@ -57,7 +57,7 @@ public class ControlProveedor extends UnicastRemoteObject implements IControlPro
 		try {
 			accesoBD.iniciarTransaccion();
 			ProveedorAssembler proveedorAssemb = new ProveedorAssembler(accesoBD);
-			Proveedor proveedor = proveedorAssemb.getProveedorNuevo(buscarProveedor(id));
+			Proveedor proveedor = proveedorAssemb.getProveedor(buscarProveedor(id));
 			accesoBD.eliminar(proveedor);
 			
 			accesoBD.concretarTransaccion();
@@ -73,7 +73,7 @@ public class ControlProveedor extends UnicastRemoteObject implements IControlPro
 			accesoBD.iniciarTransaccion();
 			
 			ProveedorAssembler proveedorAssemb = new ProveedorAssembler(accesoBD);
-			Proveedor proveedor = proveedorAssemb.getProveedorNuevo(buscarProveedor(id));
+			Proveedor proveedor = proveedorAssemb.getProveedor(buscarProveedor(id));
 			
 			proveedor.setNombre(modificado.getNombre());
 

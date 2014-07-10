@@ -78,6 +78,7 @@
 			<field name="fecha_solicitud_solicitante" persistence-modifier="persistent"/>
 			<field name="fecha_solicitud_proveedor" persistence-modifier="persistent"/>
 			<field name="fecha_recepcion_proveedor" persistence-modifier="persistent"/>
+			<field name="fecha_recepcion_estimada" persistence-modifier="persistent"/>
 			<field name="stock_propio" persistence-modifier="persistent"/>
 			<field name="stock_fabrica" persistence-modifier="persistent"/>
 			<field name="bloqueada" persistence-modifier="persistent"/>
