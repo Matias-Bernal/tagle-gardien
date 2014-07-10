@@ -31,6 +31,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import cliente.utils.JPanel_Whit_Image;
+import javax.swing.border.MatteBorder;
+import java.awt.Color;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 public class GUIAltaUsuario extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -49,7 +55,7 @@ public class GUIAltaUsuario extends JFrame {
 	 */
 	public GUIAltaUsuario(final MediadorUsuario medidador, String nombre_usuario, String email, String tipo) {
 		this.medidador = medidador;
-		tiposUsuarios = new String[] {"Administrativo", "Encargado Repuesto"};
+		tiposUsuarios = new String[] {"Buscador", "Encargado Repuesto"};
 		initialize();
 		if (nombre_usuario.length()>limite)
 			nombre_usuario = nombre_usuario.substring(0, 36);
@@ -57,27 +63,25 @@ public class GUIAltaUsuario extends JFrame {
 		if (email.length()>limite)
 			email = email.substring(0, 36);
 		tFemail.setText(email);
-		comboBox.setSelectedItem(tipo);
-		
-		SetVisible(true);
+		comboBox.setSelectedItem(tipo);		
 	}
 	
 	public GUIAltaUsuario(final MediadorUsuario medidador) {
 		this.medidador = medidador;
-		tiposUsuarios = new String[] {"Administrativo", "Encargado Repuesto"};
-
+		tiposUsuarios = new String[] {"Buscador", "Encargado Repuesto"};
 		initialize();
-		SetVisible(true);
 	}
 	
 	private void initialize() {
-		setTitle("AGREGAR USUARIO");
+		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUIAltaUsuario.class.getResource("/cliente/Recursos/Iconos/add_users.png")));
+		setTitle("AGREGAR USUARIO GARDIEN REPUESTOS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setBounds(100, 100, 410, 240);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane = new JPanel_Whit_Image("/cliente/Recursos/Imagenes/fondo.jpg");
 		setContentPane(contentPane);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		
 		JLabel lblNombreDeUsuario = new JLabel("Nombre De Usuario");
@@ -86,6 +90,7 @@ public class GUIAltaUsuario extends JFrame {
 		contentPane.add(lblNombreDeUsuario);
 		
 		tFnombre_usuario = new JTextField();
+		tFnombre_usuario.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		tFnombre_usuario.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (tFnombre_usuario.getText().length()>=limite){
@@ -106,12 +111,13 @@ public class GUIAltaUsuario extends JFrame {
 		contentPane.add(tFnombre_usuario);
 		tFnombre_usuario.setColumns(10);
 		
-		JLabel lblContrasea = new JLabel("Contrasena");
+		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContrasea.setBounds(0, 40, 145, 20);
 		contentPane.add(lblContrasea);
 		
 		passwordField = new JPasswordField();
+		passwordField.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		passwordField.addKeyListener(new KeyListener() {
 			@SuppressWarnings("deprecation")
 			public void keyTyped(KeyEvent e) {
@@ -133,6 +139,7 @@ public class GUIAltaUsuario extends JFrame {
 		contentPane.add(passwordField);
 		
 		passwordFieldConfirm = new JPasswordField();
+		passwordFieldConfirm.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		passwordFieldConfirm.addKeyListener(new KeyListener() {
 			@SuppressWarnings("deprecation")
 			public void keyTyped(KeyEvent e) {
@@ -164,6 +171,7 @@ public class GUIAltaUsuario extends JFrame {
 		contentPane.add(lblEmail);
 		
 		tFemail = new JTextField();
+		tFemail.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		tFemail.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (tFemail.getText().length()>=limite){
@@ -185,6 +193,7 @@ public class GUIAltaUsuario extends JFrame {
 		tFemail.setColumns(10);
 		
 		JButton btnCrearUsuario = new JButton("Crear");
+		btnCrearUsuario.setIcon(new ImageIcon(GUIAltaUsuario.class.getResource("/cliente/Recursos/Iconos/save.png")));
 		btnCrearUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				crear();
@@ -194,6 +203,7 @@ public class GUIAltaUsuario extends JFrame {
 		contentPane.add(btnCrearUsuario);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(GUIAltaUsuario.class.getResource("/cliente/Recursos/Iconos/cancel.png")));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -209,18 +219,17 @@ public class GUIAltaUsuario extends JFrame {
 		contentPane.setVisible(true);
 		
 		comboBox = new JComboBox<String>();
+		comboBox.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		comboBox.setModel(new DefaultComboBoxModel<String>(tiposUsuarios));
 		comboBox.setBounds(145, 131, 154, 20);
 		contentPane.add(comboBox);
 		
+		contentPane.setVisible(true);
 	}
 		
 	@SuppressWarnings("deprecation")
 	private boolean chequearContrasenia() {
 		return (passwordField.getText().equals(passwordFieldConfirm.getText()));
-	}
-	public void SetVisible(boolean visible){
-		contentPane.setVisible(visible);
 	}
 
 	public String[] getTiposUsuarios() {
@@ -234,18 +243,18 @@ public class GUIAltaUsuario extends JFrame {
 	@SuppressWarnings("deprecation")
 	public void crear(){
 		if (tFnombre_usuario.getText().isEmpty() || passwordField.getText().isEmpty() || tFemail.getText().isEmpty()){
-			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE, new ImageIcon(GUIAltaUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}else{
 			if (chequearContrasenia()){
 				if (medidador.nuevoUsuario(tFnombre_usuario.getText(), passwordField.getText(), tFemail.getText(),comboBox.getSelectedItem().toString())){
-					JOptionPane.showMessageDialog(contentPane,"Usuario Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(contentPane,"Usuario Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE, new ImageIcon(GUIAltaUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 					medidador.actualizarDatosGestion();
 					dispose();
 				}else{
-					JOptionPane.showMessageDialog(contentPane,"Error al agregar. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(contentPane,"Error al agregar. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE, new ImageIcon(GUIAltaUsuario.class.getResource("/cliente/Recursos/Iconos/error.png")));
 				}
 			}else{
-				JOptionPane.showMessageDialog(contentPane,"Las contraseï¿½as no coinciden.","Error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(contentPane,"Las contraseñas no coinciden.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaUsuario.class.getResource("/cliente/Recursos/Iconos/error.png")));
 			}
 		}
 	}

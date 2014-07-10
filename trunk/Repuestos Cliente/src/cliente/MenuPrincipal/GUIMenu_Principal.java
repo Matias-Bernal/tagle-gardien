@@ -36,6 +36,10 @@ import cliente.utils.JPanel_Whit_Image;
 import cliente.utils.TransparentPanel;
 
 import java.awt.Insets;
+import java.awt.Toolkit;
+import javax.swing.border.MatteBorder;
+import java.awt.Color;
+import java.awt.Component;
 
 public class GUIMenu_Principal extends JFrame{
 
@@ -47,6 +51,7 @@ public class GUIMenu_Principal extends JFrame{
 	private JPanel panel_logo;
 	
 	public GUIMenu_Principal(MediadorPrincipal mediadorPrincipal) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/favicon.png")));
 		this.mediadorPrincipal= mediadorPrincipal;
 		initialize();
 	}
@@ -71,12 +76,17 @@ public class GUIMenu_Principal extends JFrame{
 		});
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setAlignmentY(Component.CENTER_ALIGNMENT);
+		menuBar.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		setJMenuBar(menuBar);
 		
 		JMenu mnInicio = new JMenu("Inicio");
+		mnInicio.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/login.png")));
 		menuBar.add(mnInicio);
 		
 		JMenuItem mntmDesconectar = new JMenuItem("Desconectar");
+		mntmDesconectar.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/disconect.png")));
 		mntmDesconectar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
@@ -86,6 +96,7 @@ public class GUIMenu_Principal extends JFrame{
 		mnInicio.add(mntmDesconectar);
 		
 		JMenuItem mntmSalir = new JMenuItem("Salir");
+		mntmSalir.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/exit.png")));
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
@@ -97,9 +108,11 @@ public class GUIMenu_Principal extends JFrame{
 		
 		// MENU USUARIOS //
 		JMenu mnUsuarios = new JMenu("Usuarios");
+		mnUsuarios.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/usuarios.png")));
 		menuBar.add(mnUsuarios);
 		
 		JMenuItem mntmAltaUsuario = new JMenuItem("Alta Usuario");
+		mntmAltaUsuario.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/add_users.png")));
 		mntmAltaUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mediadorPrincipal.altaUsuario();
@@ -108,6 +121,7 @@ public class GUIMenu_Principal extends JFrame{
 		mnUsuarios.add(mntmAltaUsuario);
 		
 		JMenuItem mntmGestionUsuario = new JMenuItem("Gestionar Usuarios");
+		mntmGestionUsuario.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/edit_users.png")));
 		mntmGestionUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mediadorPrincipal.gestionarUsuario();
@@ -117,9 +131,11 @@ public class GUIMenu_Principal extends JFrame{
 		
 		// MENU REGISTRANTES //
 		JMenu mnSolicitante = new JMenu("Solicitantes");
+		mnSolicitante.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/reclamante.png")));
 		menuBar.add(mnSolicitante);
 		
 		JMenuItem mntmAltaSolicitante = new JMenuItem("Alta Solicitante");
+		mntmAltaSolicitante.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/add_reclamante.png")));
 		mntmAltaSolicitante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//setVisible(false);
@@ -129,6 +145,7 @@ public class GUIMenu_Principal extends JFrame{
 		mnSolicitante.add(mntmAltaSolicitante);
 		
 		JMenuItem mntmGestionSolicitante = new JMenuItem("Gestionar Registrantes");
+		mntmGestionSolicitante.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/edit_reclamante.png")));
 		mntmGestionSolicitante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//setVisible(false);
@@ -138,9 +155,11 @@ public class GUIMenu_Principal extends JFrame{
 		mnSolicitante.add(mntmGestionSolicitante);
 		
 		JMenu mnProveedor = new JMenu("Proveedores");
+		mnProveedor.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/registrantes.png")));
 		menuBar.add(mnProveedor);
 		
 		JMenuItem mntmAltaProveedor = new JMenuItem("Alta Proveedor");
+		mntmAltaProveedor.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/add_registrante.png")));
 		mntmAltaProveedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//setVisible(false);
@@ -150,6 +169,7 @@ public class GUIMenu_Principal extends JFrame{
 		mnProveedor.add(mntmAltaProveedor);
 		
 		JMenuItem mntmGestionProveedor = new JMenuItem("Gestionar Proveedores");
+		mntmGestionProveedor.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/edit_registrante.png")));
 		mntmGestionProveedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//setVisible(false);
@@ -159,9 +179,11 @@ public class GUIMenu_Principal extends JFrame{
 		mnProveedor.add(mntmGestionProveedor);
 		
 		JMenu mnSolicitud = new JMenu("Solicitudes");
+		mnSolicitud.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/checklist.png")));
 		menuBar.add(mnSolicitud);
 		
 		JMenuItem mntmAltaSolicitud = new JMenuItem("Alta Solicitud");
+		mntmAltaSolicitud.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/tablas.png")));
 		mntmAltaSolicitud.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mediadorPrincipal.altaSolicitud();
@@ -170,6 +192,7 @@ public class GUIMenu_Principal extends JFrame{
 		mnSolicitud.add(mntmAltaSolicitud);
 		
 		JMenuItem mntmGestionSolicutud = new JMenuItem("Gestionar Solicitudes");
+		mntmGestionSolicutud.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/ordenen.png")));
 		mntmGestionSolicutud.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mediadorPrincipal.gestionarSolicitud();
@@ -178,9 +201,11 @@ public class GUIMenu_Principal extends JFrame{
 		mnSolicitud.add(mntmGestionSolicutud);
 		
 		JMenu mnReclamos = new JMenu("Reclamos");
+		mnReclamos.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/reclamospie.png")));
 		menuBar.add(mnReclamos);
 		
 		JMenuItem mntmAltaReclamo = new JMenuItem("Alta Reclamo");
+		mntmAltaReclamo.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/inicio.png")));
 		mntmAltaReclamo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//setVisible(false);
@@ -190,6 +215,7 @@ public class GUIMenu_Principal extends JFrame{
 		mnReclamos.add(mntmAltaReclamo);
 		
 		JMenuItem mntmGestionReclamo = new JMenuItem("Gestionar Reclamos");
+		mntmGestionReclamo.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/reclamos.png")));
 		mntmGestionReclamo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//setVisible(false);
@@ -199,9 +225,11 @@ public class GUIMenu_Principal extends JFrame{
 		mnReclamos.add(mntmGestionReclamo);
 		
 		JMenu mnAyuda = new JMenu("Ayuda");
+		mnAyuda.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/help.png")));
 		menuBar.add(mnAyuda);
 		
 		JMenuItem mntmManual = new JMenuItem("Manual");
+		mntmManual.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/manual.png")));
 		mntmManual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mediadorPrincipal.ayuda();
@@ -210,6 +238,7 @@ public class GUIMenu_Principal extends JFrame{
 		mnAyuda.add(mntmManual);
 		
 		JMenuItem mntmAcercaDe = new JMenuItem("Acerca de..");
+		mntmAcercaDe.setIcon(new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Recursos/Iconos/hm-about.png")));
 		mntmAcercaDe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null,"IT10 Cooperativa - www.it10coop.com.ar","Acerca de..",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIMenu_Principal.class.getResource("/cliente/Resources/Icons/it10.png")));
@@ -263,6 +292,7 @@ public class GUIMenu_Principal extends JFrame{
 		JButton btnBuscador = new JButton("BUSCADOR");
 		btnBuscador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mediadorPrincipal.inicarBuscador();
 			}
 		});
 		GridBagConstraints gbc_btnBuscador = new GridBagConstraints();
