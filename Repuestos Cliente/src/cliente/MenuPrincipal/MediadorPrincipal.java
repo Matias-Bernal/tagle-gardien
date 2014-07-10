@@ -29,6 +29,7 @@ import cliente.GestionarSolicitud.MediadorSolicitud;
 import cliente.GestionarUsuario.MediadorUsuario;
 import cliente.Login.GUILogin;
 import comun.RootAndIp;
+import comun.DTOs.SolicitudDTO;
 import comun.DTOs.UsuarioRepuestoDTO;
 import comun.GestionarUsuarioRepuesto.IControlUsuarioRepuesto;
 
@@ -133,10 +134,14 @@ public class MediadorPrincipal{
 	}
 	
 	// Reclamo //
-	
 	public void altaReclamo(){
 		mediadorReclamo = new MediadorReclamo(this);
 		mediadorReclamo.altaReclamo();
+	}
+	
+	public void altaReclamo(SolicitudDTO solicitud){
+		mediadorReclamo = new MediadorReclamo(this);
+		mediadorReclamo.altaReclamo(solicitud);
 	}
 	public void gestionarReclamo(){
 		mediadorReclamo = new MediadorReclamo(this);

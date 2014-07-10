@@ -16,31 +16,50 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import cliente.utils.JPanel_Whit_Image;
+
+import java.awt.Toolkit;
+
+import javax.swing.border.MatteBorder;
+
+import java.awt.Color;
+import java.util.Vector;
+
+import javax.swing.ImageIcon;
+
 public class GUIAltaProveedor extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField tFNombreProveedor;
-	private MediadorProveedor medidador;
+	private MediadorProveedor mediador;
 	private JComboBox<String> cBTProveedor;
-	private String[] tiposProveedores;
+	private Vector<String> tiposProveedores;
 	private int limite = 35;
 	
-	public GUIAltaProveedor(final MediadorProveedor medidador) {
-		this.setMedidador(medidador);
-		tiposProveedores = new String[] {"Mostrador", "Mayorista", "Garantia", "Seguro" , "Taller Mecanico", "Taller Carroceria"};
+	public GUIAltaProveedor(final MediadorProveedor mediador) {
+		this.mediador = mediador;
+		cargarDatos();
 		initialize();
-		SetVisible(true);
 	}
 	
+	private void cargarDatos() {
+		tiposProveedores = new Vector<String>();
+		tiposProveedores.add("Fabrica");
+		tiposProveedores.add("Sucursal");
+		tiposProveedores.add("Alternativo");
+	}
+
 	private void initialize() {
 		setTitle("AGREGAR PROVEEDOR");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setBounds(100, 100, 410, 240);
-		contentPane = new JPanel();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/add_registrante.png")));
+		contentPane = new JPanel_Whit_Image("/cliente/Recursos/Imagenes/fondo.jpg");
+		setContentPane(contentPane);	
+		setLocationRelativeTo(null);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNombreSolicitante = new JLabel("Nombre Proveedor");
@@ -49,6 +68,7 @@ public class GUIAltaProveedor extends JFrame {
 		contentPane.add(lblNombreSolicitante);
 		
 		tFNombreProveedor = new JTextField();
+		tFNombreProveedor.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		tFNombreProveedor.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (tFNombreProveedor.getText().length()>=limite){
@@ -70,6 +90,7 @@ public class GUIAltaProveedor extends JFrame {
 		tFNombreProveedor.setColumns(10);
 		
 		JButton btnCrearUsuario = new JButton("Crear");
+		btnCrearUsuario.setIcon(new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/save.png")));
 		btnCrearUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				crear();
@@ -79,6 +100,7 @@ public class GUIAltaProveedor extends JFrame {
 		contentPane.add(btnCrearUsuario);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/cancel.png")));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -94,38 +116,50 @@ public class GUIAltaProveedor extends JFrame {
 		contentPane.setVisible(true);
 		
 		cBTProveedor = new JComboBox<String>();
-		cBTProveedor.setModel(new DefaultComboBoxModel(new String[] {"Fabrica", "Sucursal", "Alternativo"}));
+		cBTProveedor.setModel(new DefaultComboBoxModel(tiposProveedores));
 		cBTProveedor.setBounds(145, 11, 154, 20);
 		contentPane.add(cBTProveedor);
 		
-	}
-	
-	public void SetVisible(boolean visible){
-		contentPane.setVisible(visible);
-	}
-
-	public String[] getTiposUsuarios() {
-		return tiposProveedores;
-	}
-
-	public void setTiposUsuarios(String[] tiposUsuarios) {
-		this.tiposProveedores = tiposUsuarios;
+		contentPane.setVisible(true);
+		
 	}
 	
 	public void crear(){
 		if (tFNombreProveedor.getText().isEmpty()){
-			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}else{
-			
+			if(cBTProveedor.getSelectedItem().equals("Fabrica")){
+				if (mediador.agregarFabrica(tFNombreProveedor.getText())){
+					JOptionPane.showMessageDialog(contentPane,"Proveedor Fabrica Agregada.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+					mediador.actualizarDatosGestion();
+					dispose();
+				}else{
+					JOptionPane.showMessageDialog(contentPane,"Error al agregar proveedor. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/error.png")));
+				}
+			}else{
+				if(cBTProveedor.getSelectedItem().equals("Sucursal")){
+					if (mediador.agregarSucursal(tFNombreProveedor.getText())){
+						JOptionPane.showMessageDialog(contentPane,"Proveedor Sucursal Agregada.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+						mediador.actualizarDatosGestion();
+						dispose();
+					}else{
+						JOptionPane.showMessageDialog(contentPane,"Error al agregar proveedor. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/error.png")));
+					}
+				}else{
+					if(cBTProveedor.getSelectedItem().equals("Alternativo")){
+						if (mediador.agregarAlternativo(tFNombreProveedor.getText())){
+							JOptionPane.showMessageDialog(contentPane,"Proveedor Alternativo Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+							mediador.actualizarDatosGestion();
+							dispose();
+						}else{
+							JOptionPane.showMessageDialog(contentPane,"Error al agregar proveedor. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/error.png")));
+						}
+					}else{
+						JOptionPane.showMessageDialog(contentPane,"Error al agregar proveedor. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaProveedor.class.getResource("/cliente/Recursos/Iconos/error.png")));
+					}
+				}
+			}
 		}
-	}
-
-	public MediadorProveedor getMedidador() {
-		return medidador;
-	}
-
-	public void setMedidador(MediadorProveedor medidador) {
-		this.medidador = medidador;
 	}
 
 }

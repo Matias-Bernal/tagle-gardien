@@ -2,6 +2,8 @@ package cliente.GestionarSolicitante;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -16,34 +18,55 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import cliente.utils.JPanel_Whit_Image;
+import cliente.utils.TransparentPanel;
+
+import javax.swing.ImageIcon;
+import javax.swing.border.MatteBorder;
+
+import java.awt.Color;
+import java.awt.Toolkit;
+import java.util.Vector;
+
 public class GUIAltaSolicitante extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField tFNombreSolicitante;
-	private JTextField tFemail;
-	private MediadorSolicitante medidador;
+	private MediadorSolicitante mediador;
 	private JComboBox<String> cBTSolicitante;
-	private String[] tiposUsuarios;
+	private Vector<String> tiposSolicitantes;
 	private int limite = 35;
-	private JTextField tFTelefono;
-	private JTextField tfTelefono;
+	private JTextField tFTelefonoMostrador;
+	private JTextField tFEmailMostrador;
+	private JPanel panelDinamico;
 	
-	public GUIAltaSolicitante(final MediadorSolicitante medidador) {
-		this.setMedidador(medidador);
-		tiposUsuarios = new String[] {"Mostrador", "Mayorista", "Garantia", "Seguro" , "Taller Mecanico", "Taller Carroceria"};
+	public GUIAltaSolicitante(final MediadorSolicitante mediador) {
+		this.mediador = mediador;
+		cargarDatos();
 		initialize();
-		SetVisible(true);
 	}
 	
+	private void cargarDatos() {
+		tiposSolicitantes = new Vector<String>();
+		tiposSolicitantes.add("Mostrador");
+		tiposSolicitantes.add("Mayorista");
+		tiposSolicitantes.add("Garantia");
+		tiposSolicitantes.add("Seguro");
+		tiposSolicitantes.add("Taller Mecanico");
+		tiposSolicitantes.add("Taller Carroceria");
+	}
+
 	private void initialize() {
 		setTitle("AGREGAR SOLICITANTE");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setBounds(100, 100, 410, 240);
-		contentPane = new JPanel();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/add_reclamante.png")));
+		contentPane = new JPanel_Whit_Image("/cliente/Recursos/Imagenes/fondo.jpg");
+		setContentPane(contentPane);	
+		setLocationRelativeTo(null);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNombreSolicitante = new JLabel("Nombre Solicitante");
@@ -52,6 +75,7 @@ public class GUIAltaSolicitante extends JFrame {
 		contentPane.add(lblNombreSolicitante);
 		
 		tFNombreSolicitante = new JTextField();
+		tFNombreSolicitante.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		tFNombreSolicitante.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (tFNombreSolicitante.getText().length()>=limite){
@@ -72,38 +96,8 @@ public class GUIAltaSolicitante extends JFrame {
 		contentPane.add(tFNombreSolicitante);
 		tFNombreSolicitante.setColumns(10);
 		
-		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTelefono.setBounds(0, 70, 145, 20);
-		contentPane.add(lblTelefono);
-		
-		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmail.setBounds(0, 100, 145, 20);
-		contentPane.add(lblEmail);
-		
-		tFemail = new JTextField();
-		tFemail.addKeyListener(new KeyListener() {
-			public void keyTyped(KeyEvent e) {
-				if (tFemail.getText().length()>=limite){
-					e.consume();					
-				}
-			}
-			@Override
-			public void keyPressed(KeyEvent arg0) {
-				if (arg0.getKeyCode() == KeyEvent.VK_ENTER){
-					crear();
-				}
-			}
-			@Override
-			public void keyReleased(KeyEvent arg0) {				
-			}
-		});
-		tFemail.setBounds(145, 100, 250, 20);
-		contentPane.add(tFemail);
-		tFemail.setColumns(10);
-		
 		JButton btnCrearUsuario = new JButton("Crear");
+		btnCrearUsuario.setIcon(new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/save.png")));
 		btnCrearUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				crear();
@@ -113,6 +107,7 @@ public class GUIAltaSolicitante extends JFrame {
 		contentPane.add(btnCrearUsuario);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/cancel.png")));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -128,51 +123,127 @@ public class GUIAltaSolicitante extends JFrame {
 		contentPane.setVisible(true);
 		
 		cBTSolicitante = new JComboBox<String>();
-		cBTSolicitante.setModel(new DefaultComboBoxModel<String>(tiposUsuarios));
+		cBTSolicitante.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		cBTSolicitante.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				actualizarCampos();
+			}
+		});
+		cBTSolicitante.setModel(new DefaultComboBoxModel<String>(tiposSolicitantes));
 		cBTSolicitante.setBounds(145, 11, 154, 20);
 		contentPane.add(cBTSolicitante);
 		
-		tfTelefono = new JTextField();
-		tfTelefono.setColumns(10);
-		tfTelefono.setBounds(145, 70, 250, 20);
-		contentPane.add(tfTelefono);
+		panelDinamico = new TransparentPanel();
+		panelDinamico.setBounds(0, 70, 404, 88);
+		contentPane.add(panelDinamico);
+		panelDinamico.setLayout(null);
 		
+		JLabel label = new JLabel("Telefono");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setBounds(0, 0, 145, 20);
+		panelDinamico.add(label);
+		
+		tFTelefonoMostrador = new JTextField();
+		tFTelefonoMostrador.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		tFTelefonoMostrador.setColumns(10);
+		tFTelefonoMostrador.setBounds(145, 0, 250, 20);
+		panelDinamico.add(tFTelefonoMostrador);
+		
+		JLabel label_1 = new JLabel("Email");
+		label_1.setHorizontalAlignment(SwingConstants.CENTER);
+		label_1.setBounds(0, 30, 145, 20);
+		panelDinamico.add(label_1);
+		
+		tFEmailMostrador = new JTextField();
+		tFEmailMostrador.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		tFEmailMostrador.setColumns(10);
+		tFEmailMostrador.setBounds(145, 30, 250, 20);
+		panelDinamico.add(tFEmailMostrador);
+		
+		contentPane.setVisible(true);
 	}
 	
-	public void SetVisible(boolean visible){
-		contentPane.setVisible(visible);
-	}
-
-	public String[] getTiposUsuarios() {
-		return tiposUsuarios;
-	}
-
-	public void setTiposUsuarios(String[] tiposUsuarios) {
-		this.tiposUsuarios = tiposUsuarios;
+	protected void actualizarCampos() {
+		if(cBTSolicitante.getSelectedItem().equals("Mostrador")){
+			panelDinamico.setVisible(true);
+			panelDinamico.updateUI();
+		}else{
+			panelDinamico.setVisible(false);
+			panelDinamico.updateUI();
+		}
 	}
 	
 	public void crear(){
+		
 		if (tFNombreSolicitante.getText().isEmpty()){
-			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}else{
-			
+			if(cBTSolicitante.getSelectedItem().equals("Mostrador")){
+				if (tFTelefonoMostrador.getText().isEmpty()){
+					JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+				}else{
+					if (mediador.agregarMostrador(tFNombreSolicitante.getText(),tFTelefonoMostrador.getText(),tFEmailMostrador.getText())){
+						JOptionPane.showMessageDialog(contentPane,"Solicitante Mostrador Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+						mediador.actualizarDatosGestion();
+						dispose();
+					}else{
+						JOptionPane.showMessageDialog(contentPane,"Error al agregar solicitante. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/error.png")));
+					}
+				}
+			}else{
+				if(cBTSolicitante.getSelectedItem().equals("Mayorista")){
+					if (mediador.agregarMayorista(tFNombreSolicitante.getText())){
+						JOptionPane.showMessageDialog(contentPane,"Solicitante Mayorista Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+						mediador.actualizarDatosGestion();
+						dispose();
+					}else{
+						JOptionPane.showMessageDialog(contentPane,"Error al agregar solicitante. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/error.png")));
+					}
+				}else{
+					if(cBTSolicitante.getSelectedItem().equals("Garantia")){
+						if (mediador.agregarGarantia(tFNombreSolicitante.getText())){
+							JOptionPane.showMessageDialog(contentPane,"Solicitante Garantia Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+							mediador.actualizarDatosGestion();
+							dispose();
+						}else{
+							JOptionPane.showMessageDialog(contentPane,"Error al agregar solicitante. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/error.png")));
+						}
+					}else{
+						if(cBTSolicitante.getSelectedItem().equals("Seguro")){
+							if (mediador.agregarSeguro(tFNombreSolicitante.getText())){
+								JOptionPane.showMessageDialog(contentPane,"Solicitante Seguro Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+								mediador.actualizarDatosGestion();
+								dispose();
+							}else{
+								JOptionPane.showMessageDialog(contentPane,"Error al agregar solicitante. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/error.png")));
+							}
+						}else{
+							if(cBTSolicitante.getSelectedItem().equals("Taller Mecanico")){
+								if (mediador.agregarTallerMecanico(tFNombreSolicitante.getText())){
+									JOptionPane.showMessageDialog(contentPane,"Solicitante Taller Mecanico Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+									mediador.actualizarDatosGestion();
+									dispose();
+								}else{
+									JOptionPane.showMessageDialog(contentPane,"Error al agregar solicitante. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/error.png")));
+								}
+							}else{
+								if(cBTSolicitante.getSelectedItem().equals("Taller Carroceria")){
+									if (mediador.agregarTallerCarroceria(tFNombreSolicitante.getText())){
+										JOptionPane.showMessageDialog(contentPane,"Solicitante Taller Carroceria Agregado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
+										mediador.actualizarDatosGestion();
+										dispose();
+									}else{
+										JOptionPane.showMessageDialog(contentPane,"Error al agregar solicitante. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/error.png")));
+									}
+								}else{
+									JOptionPane.showMessageDialog(contentPane,"Error al agregar solicitante. Inente nuevamente.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIAltaSolicitante.class.getResource("/cliente/Recursos/Iconos/error.png")));
+								}
+							}
+						}
+					}
+				}
+			}
 		}
-	}
-
-	public JTextField gettFTelefono() {
-		return tFTelefono;
-	}
-
-	public void settFTelefono(JTextField tFTelefono) {
-		this.tFTelefono = tFTelefono;
-	}
-
-	public MediadorSolicitante getMedidador() {
-		return medidador;
-	}
-
-	public void setMedidador(MediadorSolicitante medidador) {
-		this.medidador = medidador;
 	}
 
 }

@@ -36,18 +36,24 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
 import cliente.MenuPrincipal.MediadorPrincipal;
+import cliente.utils.JPanel_Whit_Image;
+import cliente.utils.TransparentPanel;
 
 import java.awt.event.KeyAdapter;
+
+import javax.swing.border.MatteBorder;
+
+import java.awt.Color;
 
 public class GUILogin extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private MediadorPrincipal mediadorPrincipal;
-	private JFrame LoginFrame;
 	private JTextField tf_nombre_usuario;
 	private JPanel jPanel_sur;
 	private JPasswordField pf_contrasenia;
 	private int limite  = 35;
+	private JPanel contentPane;
 
 	public GUILogin(MediadorPrincipal mediadorPrincipal) {
 		this.mediadorPrincipal = mediadorPrincipal;
@@ -56,21 +62,23 @@ public class GUILogin extends JFrame{
 	}
 	
 	private void initialize() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUILogin.class.getResource("/cliente/Recursos/Iconos/login.png")));
+		setTitle("LOGIN");
+		setResizable(false);
+		setMinimumSize(new Dimension(375, 225));
+		setLocationRelativeTo(null);
 		
-		LoginFrame = new JFrame();
-		LoginFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(GUILogin.class.getResource("/cliente/Recursos/Iconos/login.png")));
-		LoginFrame.setTitle("LOGIN");
-		LoginFrame.setResizable(false);
-		LoginFrame.setMinimumSize(new Dimension(375, 225));
-		LoginFrame.setLocationRelativeTo(null);
-		LoginFrame.getContentPane().setLayout(null);
+		contentPane = new JPanel_Whit_Image("/cliente/Recursos/Imagenes/fondo.jpg");
+		setContentPane(contentPane);
+		getContentPane().setLayout(null);
 		
 		JLabel lblNombreDeUsuario = new JLabel("Nombre de Usuario");
 		lblNombreDeUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombreDeUsuario.setBounds(109, 10, 150, 20);
-		LoginFrame.getContentPane().add(lblNombreDeUsuario);
+		getContentPane().add(lblNombreDeUsuario);
 		
 		tf_nombre_usuario = new JTextField(limite);
+		tf_nombre_usuario.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		tf_nombre_usuario.setBounds(59, 35, 250, 20);
 		tf_nombre_usuario.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
@@ -91,14 +99,15 @@ public class GUILogin extends JFrame{
 			}
 		});
 		tf_nombre_usuario.setHorizontalAlignment(SwingConstants.CENTER);
-		LoginFrame.getContentPane().add(tf_nombre_usuario);
+		getContentPane().add(tf_nombre_usuario);
 		
 		JLabel lblContrasea = new JLabel("Contraseña");
 		lblContrasea.setHorizontalAlignment(SwingConstants.CENTER);
 		lblContrasea.setBounds(109, 65, 150, 20);
-		LoginFrame.getContentPane().add(lblContrasea);
+		getContentPane().add(lblContrasea);
 		
 		pf_contrasenia = new JPasswordField(limite);
+		pf_contrasenia.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		pf_contrasenia.setBounds(59, 89, 250, 20);
 		pf_contrasenia.addKeyListener(new KeyListener() {
 			@SuppressWarnings("deprecation")
@@ -120,12 +129,12 @@ public class GUILogin extends JFrame{
 			}
 		});
 		pf_contrasenia.setHorizontalAlignment(SwingConstants.CENTER);
-		LoginFrame.getContentPane().add(pf_contrasenia);
+		getContentPane().add(pf_contrasenia);
 		
-		jPanel_sur = new JPanel();
+		jPanel_sur = new TransparentPanel();
 		jPanel_sur.setBounds(57, 112, 254, 88);
 		jPanel_sur.setBorder(null);
-		LoginFrame.getContentPane().add(jPanel_sur);
+		getContentPane().add(jPanel_sur);
 		GridBagLayout gbl_jPanel_sur = new GridBagLayout();
 		gbl_jPanel_sur.columnWidths = new int[] {90, 35, 90, 0};
 		gbl_jPanel_sur.rowHeights = new int[]{30, 0, 23, 0};
@@ -159,7 +168,7 @@ public class GUILogin extends JFrame{
 		btnSalir.setIcon(new ImageIcon(GUILogin.class.getResource("/cliente/Recursos/Iconos/exit_login.png")));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				LoginFrame.dispose();
+				dispose();
 			}
 		});
 		GridBagConstraints gbc_btnSalir = new GridBagConstraints();
@@ -168,27 +177,25 @@ public class GUILogin extends JFrame{
 		gbc_btnSalir.gridx = 2;
 		gbc_btnSalir.gridy = 1;
 		jPanel_sur.add(btnSalir, gbc_btnSalir);
+		setVisible(true);
 	}
 	
-	public void setVisible(boolean b) {
-		LoginFrame.setVisible(b);		
-	}
 
 	public void login (){
 		String usuario = tf_nombre_usuario.getText();
 		@SuppressWarnings("deprecation")
 		String contrasenia = pf_contrasenia.getText();
 		if (usuario.isEmpty() || usuario=="" || contrasenia.isEmpty() || contrasenia == ""){
-			JOptionPane.showMessageDialog(LoginFrame,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(this,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUILogin.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}else{
 			try {
 				if (mediadorPrincipal.acceso(usuario,contrasenia)) {
 					setVisible(false);
 				}else{
-					JOptionPane.showMessageDialog(LoginFrame,"Usuario/Contraseña no validos.","Error",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this,"Usuario/Contraseña no validos.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUILogin.class.getResource("/cliente/Recursos/Iconos/error.png")));
 				}
 			} catch (Exception e) {
-				JOptionPane.showMessageDialog(LoginFrame,"Error al iniciar sesion.","Error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this,"Error al iniciar sesion.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUILogin.class.getResource("/cliente/Recursos/Iconos/error.png")));
 				e.printStackTrace();
 			}
 		}

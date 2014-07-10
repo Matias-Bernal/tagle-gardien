@@ -40,7 +40,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import javax.swing.table.DefaultTableModel;
@@ -48,8 +47,14 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 import cliente.excellexport.ExportarExcel;
-
+import cliente.utils.JPanel_Whit_Image;
 import comun.DTOs.UsuarioRepuestoDTO;
+
+import java.awt.Toolkit;
+
+import javax.swing.border.MatteBorder;
+
+import java.awt.Color;
 
 public class GUIGestionUsuario extends JFrame {
 
@@ -92,21 +97,24 @@ public class GUIGestionUsuario extends JFrame {
 	public void initialize(){
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
-		setTitle("GESTIONAR USUARIOS");
+		setTitle("GESTIONAR USUARIOS REPUESTO");
 		setResizable(false);
-		contentPane = new JPanel();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/usuarios.png")));
+		contentPane = new JPanel_Whit_Image("/cliente/Recursos/Imagenes/fondo.jpg");
+		setContentPane(contentPane);	
+		setLocationRelativeTo(null);
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		labelTipoUsuario = new JLabel("Tipo Usuario");
 		labelTipoUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-		labelTipoUsuario.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		labelTipoUsuario.setBounds(10, 109, 172, 24);
 		contentPane.add(labelTipoUsuario);
 		
 		
 		tFnombre_usuario = new JTextField();
+		tFnombre_usuario.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		tFnombre_usuario.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
 				filtrarPorNombre();
@@ -132,6 +140,7 @@ public class GUIGestionUsuario extends JFrame {
 		tFnombre_usuario.setColumns(10);
 		
 		tFemail = new JTextField();
+		tFemail.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		tFemail.addCaretListener(new CaretListener() {
 			public void caretUpdate(CaretEvent e) {
 				filtrarPorEmail();
@@ -157,6 +166,7 @@ public class GUIGestionUsuario extends JFrame {
 		tFemail.setColumns(10);
 		
 		btnModificar = new JButton("Modificar");
+		btnModificar.setIcon(new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/edit.png")));
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				modificar();
@@ -166,6 +176,7 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(btnModificar);
 		
 		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setIcon(new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/delete.png")));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eliminar();
@@ -176,13 +187,11 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(btnEliminar);
 		
 		JLabel lbl_nombre_usuario = new JLabel("Nombre de Usuario");
-		lbl_nombre_usuario.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		lbl_nombre_usuario.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_nombre_usuario.setBounds(10, 35, 172, 24);
 		contentPane.add(lbl_nombre_usuario);
 		
 		JLabel lbl_email = new JLabel("Email");
-		lbl_email.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		lbl_email.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_email.setBounds(10, 72, 172, 24);
 		contentPane.add(lbl_email);
@@ -211,6 +220,7 @@ public class GUIGestionUsuario extends JFrame {
 		tableUsuarios.setBounds(0, 0, 765, 320);
 		
 		JScrollPane scrollPaneTabla = new JScrollPane(tableUsuarios);
+		scrollPaneTabla.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		scrollPaneTabla.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPaneTabla.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		tableUsuarios.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -219,6 +229,7 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(scrollPaneTabla);
 
 		comboBox = new JComboBox<String>();
+		comboBox.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		comboBox.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				filtrarPorTipo();
@@ -229,6 +240,7 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(comboBox);
 		
 		btnAgregar = new JButton("Agregar");
+		btnAgregar.setIcon(new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/add.png")));
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mediador.altaUsuario(tFnombre_usuario.getText(), tFemail.getText(),(String) comboBox.getSelectedItem());
@@ -238,6 +250,7 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(btnAgregar);
 		
 		btnImprimir = new JButton("Imprimir");
+		btnImprimir.setIcon(new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/printer.png")));
 		btnImprimir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -251,6 +264,7 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(btnImprimir);
 		
 		btnVolver = new JButton("Volver");
+		btnVolver.setIcon(new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/back.png")));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -260,6 +274,7 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(btnVolver);
 		
 		btnActualizar = new JButton("Actualizar");
+		btnActualizar.setIcon(new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/1refresh.png")));
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				actualizarDatos();
@@ -269,6 +284,7 @@ public class GUIGestionUsuario extends JFrame {
 		contentPane.add(btnActualizar);
 		
 		btnExportExcell = new JButton("");
+		btnExportExcell.setIcon(new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/formulario.png")));
 		btnExportExcell.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				exportarTablas();
@@ -281,7 +297,7 @@ public class GUIGestionUsuario extends JFrame {
 		try {
 			ExportarExcel.exportarUnaTabla(tableUsuarios, "Usuarios");
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(contentPane,"Ocurrio un error al querer exportar.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane,"Ocurrio un error al querer exportar.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}
 	}
 
@@ -296,7 +312,7 @@ public class GUIGestionUsuario extends JFrame {
 				actualizarDatos();
 			}
 		}else{
-			JOptionPane.showMessageDialog(contentPane,"Seleccione un Usuario primero.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane,"Seleccione un Usuario primero.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}
 	}
 	public void eliminar(){
@@ -306,12 +322,12 @@ public class GUIGestionUsuario extends JFrame {
 			Long id = new Long (tableUsuarios.getValueAt(aux, 0).toString());
 			if (JOptionPane.showConfirmDialog(null, "¿Eliminar Usuario [ID:"+id+"]?", "Confirmar",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/delete.png"))) == JOptionPane.YES_OPTION){ 
 				if (mediador.eliminarUsuario(id)){
-					JOptionPane.showMessageDialog(contentPane,"Usuario eliminado.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(contentPane,"Usuario eliminado.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 					actualizarDatos();
 				}
 			}
 		}else{
-			JOptionPane.showMessageDialog(contentPane,"Seleccione un usuario primero.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane,"Seleccione un usuario primero.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIGestionUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}
 	}
 	
@@ -386,7 +402,7 @@ public class GUIGestionUsuario extends JFrame {
 
 		tiposUsuarios = new Vector<String>();
 		tiposUsuarios.add("");
-		tiposUsuarios.add("Administrativo");
+		tiposUsuarios.add("Buscador");
 		tiposUsuarios.add("Encargado Repuesto");
 
 		nombreColumnas = new Vector<String> ();

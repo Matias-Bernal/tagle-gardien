@@ -1,6 +1,7 @@
 package cliente.GestionarReclamo;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,14 +12,28 @@ public class GUIAltaReclamo extends JFrame {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8202532311424536375L;
 	private JPanel contentPane;
 
-	
-	public GUIAltaReclamo(MediadorReclamo mediadorReclamo) {
-		// TODO Auto-generated constructor stub
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUIAltaReclamo frame = new GUIAltaReclamo();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
-	
+
+	/**
+	 * Create the frame.
+	 */
 	public GUIAltaReclamo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -27,7 +42,5 @@ public class GUIAltaReclamo extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 	}
-
-
 
 }

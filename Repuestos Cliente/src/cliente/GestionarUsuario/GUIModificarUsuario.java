@@ -31,7 +31,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import cliente.utils.JPanel_Whit_Image;
 import comun.DTOs.UsuarioRepuestoDTO;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class GUIModificarUsuario extends JFrame{
 
@@ -43,7 +46,7 @@ public class GUIModificarUsuario extends JFrame{
 	private JTextField tFemail;
 	private MediadorUsuario medidador;
 	private JComboBox<String> comboBox;
-	private String[] tiposUsuarios = new String[] {"Administrativo", "Encargado Repuesto"};
+	private String[] tiposUsuarios = new String[] {"Buscador", "Encargado Repuesto"};
 	private int limite = 35;
 	private UsuarioRepuestoDTO usuario;
 
@@ -60,13 +63,17 @@ public class GUIModificarUsuario extends JFrame{
 
 	
 	private void initialize() {
-		setTitle("MODIFICAR USUARIO");
+		setTitle("MODIFICAR USUARIO REPUESTOS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setBounds(100, 100, 410, 240);
-		contentPane = new JPanel();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUIModificarUsuario.class.getResource("/cliente/Recursos/Iconos/edit_users.png")));
+		
+		contentPane = new JPanel_Whit_Image("/cliente/Recursos/Imagenes/fondo.jpg");
+		setContentPane(contentPane);	
+		setLocationRelativeTo(null);
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNombreDeUsuario = new JLabel("Nombre De Usuario");
@@ -143,7 +150,7 @@ public class GUIModificarUsuario extends JFrame{
 		newpassword.setBounds(144, 70, 250, 20);
 		contentPane.add(newpassword);
 		
-		JLabel lblConfirmar = new JLabel("Nueva Contrase\u00F1a");
+		JLabel lblConfirmar = new JLabel("Nueva Contraseña");
 		lblConfirmar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblConfirmar.setBounds(0, 70, 141, 20);
 		contentPane.add(lblConfirmar);
@@ -175,6 +182,7 @@ public class GUIModificarUsuario extends JFrame{
 		tFemail.setColumns(10);
 		
 		JButton btnModificarUsuario = new JButton("Modificar");
+		btnModificarUsuario.setIcon(new ImageIcon(GUIModificarUsuario.class.getResource("/cliente/Recursos/Iconos/edit.png")));
 		btnModificarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				modificar();
@@ -184,6 +192,7 @@ public class GUIModificarUsuario extends JFrame{
 		contentPane.add(btnModificarUsuario);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(GUIModificarUsuario.class.getResource("/cliente/Recursos/Iconos/cancel.png")));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -224,17 +233,17 @@ public class GUIModificarUsuario extends JFrame{
 	@SuppressWarnings("deprecation")
 	public void modificar(){
 		if (tFnombre_usuario.getText().isEmpty() || passwordField.getText().isEmpty() || tFemail.getText().isEmpty() || newpassword.getText().isEmpty()){
-			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(contentPane,"Algunos campos estan vacios.","Advertencia",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIModificarUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 		}else{
 			if (chequearUsuario()){
 				UsuarioRepuestoDTO usuariomodif = new UsuarioRepuestoDTO(tFnombre_usuario.getText(), newpassword.getText(), tFemail.getText(),comboBox.getSelectedItem().toString());
 				if (medidador.modificar(usuariomodif)){
-					JOptionPane.showMessageDialog(contentPane,"Usuario Modificado.","Notificacion",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(contentPane,"Usuario Modificado.","Notificacion",JOptionPane.INFORMATION_MESSAGE,new ImageIcon(GUIModificarUsuario.class.getResource("/cliente/Recursos/Iconos/informacion.png")));
 					medidador.actualizarDatosGestion();
 					dispose();
 				}
 			}else{
-				JOptionPane.showMessageDialog(contentPane,"Las contraseña anterior no coincide.","Error",JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(contentPane,"Las contraseña anterior no coincide.","Error",JOptionPane.ERROR_MESSAGE,new ImageIcon(GUIModificarUsuario.class.getResource("/cliente/Recursos/Iconos/error.png")));
 			}
 		}
 	}
