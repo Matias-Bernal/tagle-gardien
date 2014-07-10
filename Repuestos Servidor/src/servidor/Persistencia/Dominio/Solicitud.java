@@ -22,6 +22,7 @@ public class Solicitud {
 	protected Date fecha_solicitud_solicitante;
 	protected Date fecha_solicitud_proveedor;
 	protected Date fecha_recepcion_proveedor;
+	protected Date fecha_recepcion_estimada;
 	protected boolean stock_propio;
 	protected boolean stock_fabrica;
 	protected boolean bloqueada;
@@ -47,7 +48,7 @@ public class Solicitud {
 
 	public Solicitud(Long id, Date fecha_solicitud_solicitante,
 			Date fecha_solicitud_proveedor, Date fecha_recepcion_proveedor,
-			boolean stock_propio, boolean stock_fabrica, boolean bloqueada,
+			Date fecha_recepcion_estimada, boolean stock_propio, boolean stock_fabrica, boolean bloqueada,
 			int cantidad, String orden_trabajo, String dominio,
 			String numero_pedido, String estado, String numero_siniestro,
 			String pnc, String pcl, Cargo cargo, Solicitante solicitante,
@@ -58,6 +59,7 @@ public class Solicitud {
 		this.fecha_solicitud_solicitante = fecha_solicitud_solicitante;
 		this.fecha_solicitud_proveedor = fecha_solicitud_proveedor;
 		this.fecha_recepcion_proveedor = fecha_recepcion_proveedor;
+		this.fecha_recepcion_estimada = fecha_recepcion_estimada;
 		this.stock_propio = stock_propio;
 		this.stock_fabrica = stock_fabrica;
 		this.bloqueada = bloqueada;
@@ -285,6 +287,16 @@ public class Solicitud {
 
 	public void setPerito(Perito perito) {
 		this.perito = perito;
+	}
+
+
+	public Date getFecha_recepcion_estimada() {
+		return fecha_recepcion_estimada;
+	}
+
+
+	public void setFecha_recepcion_estimada(Date fecha_recepcion_estimada) {
+		this.fecha_recepcion_estimada = fecha_recepcion_estimada;
 	}
 	
 	

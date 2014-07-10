@@ -34,6 +34,7 @@ public class SolicitudAssembler {
 		solicitudDTO.setFecha_solicitud_solicitante(solicitud.getFecha_solicitud_solicitante());
 		solicitudDTO.setFecha_solicitud_proveedor(solicitud.getFecha_solicitud_proveedor());
 		solicitudDTO.setFecha_recepcion_proveedor(solicitud.getFecha_recepcion_proveedor());
+		solicitudDTO.setFecha_recepcion_estimada(solicitud.getFecha_recepcion_estimada());
 		solicitudDTO.setStock_propio(solicitud.isStock_propio());
 		solicitudDTO.setStock_fabrica(solicitud.isStock_fabrica());
 		solicitudDTO.setBloqueada(solicitud.isBloqueada());
@@ -74,6 +75,7 @@ public class SolicitudAssembler {
 		solicitud.setFecha_solicitud_solicitante(solicitudDTO.getFecha_solicitud_solicitante());
 		solicitud.setFecha_solicitud_proveedor(solicitudDTO.getFecha_solicitud_proveedor());
 		solicitud.setFecha_recepcion_proveedor(solicitudDTO.getFecha_recepcion_proveedor());
+		solicitud.setFecha_recepcion_estimada(solicitudDTO.getFecha_recepcion_estimada());
 		solicitud.setStock_propio(solicitudDTO.isStock_propio());
 		solicitud.setStock_fabrica(solicitudDTO.isStock_fabrica());
 		solicitud.setBloqueada(solicitudDTO.isBloqueada());
@@ -114,6 +116,7 @@ public class SolicitudAssembler {
 		solicitud.setFecha_solicitud_solicitante(solicitudDTO.getFecha_solicitud_solicitante());
 		solicitud.setFecha_solicitud_proveedor(solicitudDTO.getFecha_solicitud_proveedor());
 		solicitud.setFecha_recepcion_proveedor(solicitudDTO.getFecha_recepcion_proveedor());
+		solicitud.setFecha_recepcion_estimada(solicitudDTO.getFecha_recepcion_estimada());
 		solicitud.setStock_propio(solicitudDTO.isStock_propio());
 		solicitud.setStock_fabrica(solicitudDTO.isStock_fabrica());
 		solicitud.setBloqueada(solicitudDTO.isBloqueada());
